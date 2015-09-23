@@ -17,7 +17,7 @@ Thanks to great contributors for my using those awesome libraries in this app.
 * [ofxARToolKitPlus](https://github.com/fishkingsin/ofxARtoolkitPlus) (see this [license](https://github.com/fishkingsin/ofxARtoolkitPlus#licence))
 
 ## License
-[License]()
+[License](https://github.com/nama-gatsuo/ArStepSequencer/blob/master/LICENSE.txt)
 
 ## Author
 [nama-gatsuo](https://github.com/nama-gatsuo)
