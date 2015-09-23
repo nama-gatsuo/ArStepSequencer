@@ -1,0 +1,3 @@
+ofxOpenCv
+ofxARToolkitPlus
+ofxMidi
