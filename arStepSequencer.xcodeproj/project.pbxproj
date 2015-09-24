@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BFC9C20FD7E3C8D5873AA97 /* ofxMidiIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DD359247F3ED1550D8BB5C9 /* ofxMidiIn.cpp */; };
 		169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A03390302D5A2C9F0E4AB /* ofxCvFloatImage.cpp */; };
+		1731E8131BB43DAB005EE802 /* countThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1731E8111BB43DAB005EE802 /* countThread.cpp */; settings = {ASSET_TAGS = (); }; };
 		17363E8D1BA2C0E3009F10F6 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17363E8C1BA2C0E3009F10F6 /* CoreMIDI.framework */; };
 		17CDEED41BAEF1DB009E4999 /* soundBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17CDEED21BAEF1DB009E4999 /* soundBox.cpp */; settings = {ASSET_TAGS = (); }; };
 		1A86B7721CAEBC6F1C572C45 /* ofxBaseMidi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94B3C3C21F92F9310CA90986 /* ofxBaseMidi.cpp */; };
@@ -88,6 +89,8 @@
 		0CF0AA3895D28E97D8A1E4A9 /* ground_truth.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ground_truth.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/ground_truth.h; sourceTree = SOURCE_ROOT; };
 		114B872696817CC33990FC83 /* imgproc.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = imgproc.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc.hpp; sourceTree = SOURCE_ROOT; };
 		1283479F655BBCFA6075D02A /* config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = config.h; path = ../../../addons/ofxARToolkitPlus/libs/ARToolKitPlus/include/ARToolKitPlus/config.h; sourceTree = SOURCE_ROOT; };
+		1731E8111BB43DAB005EE802 /* countThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = countThread.cpp; sourceTree = "<group>"; };
+		1731E8121BB43DAB005EE802 /* countThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = countThread.hpp; sourceTree = "<group>"; };
 		17363E8C1BA2C0E3009F10F6 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		17CDEED21BAEF1DB009E4999 /* soundBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundBox.cpp; sourceTree = "<group>"; };
 		17CDEED31BAEF1DB009E4999 /* soundBox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = soundBox.hpp; sourceTree = "<group>"; };
@@ -725,6 +728,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				17CDEED21BAEF1DB009E4999 /* soundBox.cpp */,
 				17CDEED31BAEF1DB009E4999 /* soundBox.hpp */,
+				1731E8111BB43DAB005EE802 /* countThread.cpp */,
+				1731E8121BB43DAB005EE802 /* countThread.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -851,6 +856,7 @@
 				0BFC9C20FD7E3C8D5873AA97 /* ofxMidiIn.cpp in Sources */,
 				C6FE64F74F1EA1D98C8F9847 /* ofxMidiMessage.cpp in Sources */,
 				83D9F930112E0944444124EE /* ofxMidiOut.cpp in Sources */,
+				1731E8131BB43DAB005EE802 /* countThread.cpp in Sources */,
 				17CDEED41BAEF1DB009E4999 /* soundBox.cpp in Sources */,
 				63D0FD8734D5760B8080C901 /* RtMidi.cpp in Sources */,
 			);

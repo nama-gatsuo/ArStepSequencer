@@ -4,18 +4,16 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
-    ofSetVerticalSync(true);
-    
-    cam.setDistance(60.0f);
+    //ofSetVerticalSync(true);
     
     ofSetSmoothLighting(true);
     
-    light.setPosition(50, 300.0, 200.0);
-    light.setAmbientColor(ofFloatColor(0.2, 0.2, 0.2, 1.0));
-    light.setSpecularColor(ofFloatColor(0.9, 0.9, 0.9, 1.0));
-    light.setDiffuseColor(ofFloatColor(1.0, 1.0, 1.0, 1.0));
-    light.setDirectional();
-    light.lookAt(ofVec3f(0.0,0.0,0.0));
+    light0.setPosition(50, 300.0, 200.0);
+    light0.setAmbientColor(ofFloatColor(0.2, 0.2, 0.2, 1.0));
+    light0.setSpecularColor(ofFloatColor(0.9, 0.9, 0.9, 1.0));
+    light0.setDiffuseColor(ofFloatColor(1.0, 1.0, 1.0, 1.0));
+    light0.setDirectional();
+    light0.lookAt(ofVec3f(0.0,0.0,0.0));
     
     light1.setPosition(-50, 300.0, 200.0);
     light1.setAmbientColor(ofFloatColor(0.2, 0.2, 0.2, 1.0));
@@ -47,19 +45,22 @@ void ofApp::setup(){
     
     threshold = 160;
     artk.setThreshold(threshold);
+    
+    bpm = 120;
+    thread.startThread();
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     vidGrabber.update();
-    
     if (vidGrabber.isFrameNew()) {
         colorImage.setFromPixels(vidGrabber.getPixels(), width, height);
         grayImage = colorImage;
         artk.update(grayImage.getPixels());
     }
     
-    if (ofGetFrameNum() % framePerBeat == 0) {
+    if (thread.isNewBeat()) {
         currentBar++;
         
         if (currentBar == 17) {
@@ -75,8 +76,7 @@ void ofApp::update(){
             it->update();
         }
     }
-    
-    bpm = 60 / (framePerBeat / ofGetFrameRate() * 4);
+
 }
 
 void ofApp::triggerBangs() {
@@ -124,6 +124,7 @@ void ofApp::triggerBangs() {
 void ofApp::draw(){
     ofSetHexColor(0xfffffff);
     colorImage.draw(0, 0);
+    
     //artk.draw();
     
     ofSetColor(255);
@@ -139,7 +140,7 @@ void ofApp::draw(){
         artk.applyModelMatrix(i);
         ofEnableDepthTest();
         ofEnableLighting();
-        light.enable();
+        light0.enable();
         light1.enable();
         
         ofSetColor(40);
@@ -154,9 +155,10 @@ void ofApp::draw(){
             }
         }
         
-        light.draw();
-        light1.draw();
-        light.disable();
+        //light0.draw();
+        //light1.draw();
+        
+        light0.disable();
         light1.disable();
         ofDisableLighting();
         ofDisableDepthTest();
@@ -231,6 +233,7 @@ void ofApp::drawSelector() {
 
 void ofApp::exit() {
     midiOut.closePort();
+    thread.stopThread();
 }
 
 
@@ -256,7 +259,14 @@ void ofApp::keyPressed(int key){
                                              tileRange * (selector.y - row/2 + 0.5),
                                              tileRange/2)));
             break;
-            
+        case '+':
+            bpm++;
+            thread.setBPM(bpm);
+            break;
+        case '-':
+            bpm--;
+            thread.setBPM(bpm);
+            break;
         case 'x':
             vector<soundBox>::iterator it;
             for (it = boxes.begin(); it < boxes.end(); it++) {
@@ -265,7 +275,7 @@ void ofApp::keyPressed(int key){
                 }
             }
             break;
-        
+
     }
 }
 

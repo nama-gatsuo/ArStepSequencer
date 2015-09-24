@@ -2,9 +2,11 @@
 
 #include "ofMain.h"
 #include "ofxMidi.h"
-#include "soundBox.hpp"
 #include "ofxARToolkitPlus.h"
 #include "ofxOpenCv.h"
+
+#include "soundBox.hpp"
+#include "countThread.hpp"
 
 class ofApp : public ofBaseApp{
 public:
@@ -40,10 +42,7 @@ public:
     unsigned int framePerBeat;
     int row;
     
-    float bpm;
-    
-    ofEasyCam cam;
-    ofLight light;
+    ofLight light0;
     ofLight light1;
     
     Selector selector;
@@ -67,5 +66,9 @@ public:
     
     ofImage displayImage;
     vector<ofPoint> displayImageCorners;
+    
+    // count BPM
+    int bpm;
+    countThread thread;
 		
 };
