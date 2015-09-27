@@ -39,7 +39,6 @@ public:
     void drawSelector();
     
     unsigned int currentBar;
-    unsigned int framePerBeat;
     int row;
     
     ofLight light0;
@@ -62,10 +61,7 @@ public:
     
     ofxCvColorImage colorImage;
     ofxCvGrayscaleImage grayImage;
-    ofxCvGrayscaleImage grayThres;
-    
     ofImage displayImage;
-    vector<ofPoint> displayImageCorners;
     
     // count BPM
     int bpm;

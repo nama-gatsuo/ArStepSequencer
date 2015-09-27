@@ -24,7 +24,6 @@ void ofApp::setup(){
     
     row = 8;
     currentBar = 1;
-    framePerBeat = 7;
     
     ofBackground(40);
     
@@ -35,6 +34,7 @@ void ofApp::setup(){
     height = 540;
     
     vidGrabber.setVerbose(true);
+    vidGrabber.listDevices();
     vidGrabber.setDeviceID(1);
     vidGrabber.initGrabber(width, height);
     
